@@ -1,0 +1,32 @@
+<table class="table mt-4">
+    <thead class="thead-light">
+    <tr>
+        {{#headers}}
+            <th scope="col">{{{.}}}</th>
+        {{/headers}}
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#rows}}
+        <tr>
+            {{#.}}
+                <td class="align-middle">
+                    {{{.}}}
+                </td>
+            {{/.}}
+        </tr>
+    {{/rows}}
+    </tbody>
+</table>
+{{#js}}
+    require(['jquery'], function($) {
+        $('.delete-extdoc').on('click', function (e) {
+            if (confirm('Estàs segur que vols esborrar aquest element?')) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+    });
+{{/js}}

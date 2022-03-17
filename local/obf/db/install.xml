@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/obf/db" VERSION="20131122" COMMENT="XMLDB file for Moodle local/obf"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+    <TABLES>
+        <TABLE NAME="local_obf_criterion_courses" COMMENT="Criterion courses for the OBF-plugin." NEXT="local_obf_criterion">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="obf_criterion_id"/>
+                <FIELD NAME="obf_criterion_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="The id of the criterion type" PREVIOUS="id" NEXT="courseid"/>
+                <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" PREVIOUS="obf_criterion_id" NEXT="grade"/>
+                <FIELD NAME="grade" TYPE="int" LENGTH="2" NOTNULL="false" SEQUENCE="false" PREVIOUS="courseid" NEXT="completed_by"/>
+                <FIELD NAME="completed_by" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="grade" NEXT="criteria_type"/>
+                <FIELD NAME="criteria_type" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="completed_by"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" NEXT="fk_obf_criterion_id"/>
+                <KEY NAME="fk_obf_criterion_id" TYPE="foreign" FIELDS="obf_criterion_id" REFTABLE="local_obf_criterion" REFFIELDS="id" PREVIOUS="primary" NEXT="fk_course_id"/>
+                <KEY NAME="fk_course_id" TYPE="foreign" FIELDS="courseid" REFTABLE="course" REFFIELDS="id" PREVIOUS="fk_obf_criterion_id"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="local_obf_criterion" COMMENT="Default comment for the table, please edit me" PREVIOUS="local_obf_criterion_courses" NEXT="local_obf_email_templates">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="badge_id"/>
+                <FIELD NAME="badge_id" TYPE="text" NOTNULL="true" SEQUENCE="false" PREVIOUS="id" NEXT="completion_method"/>
+                <FIELD NAME="completion_method" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="badge_id" NEXT="use_addendum"/>
+                <FIELD NAME="use_addendum" TYPE="binary" NOTNULL="false" SEQUENCE="false" PREVIOUS="completion_method" NEXT="addendum"/>
+                <FIELD NAME="addendum" TYPE="text" NOTNULL="false" SEQUENCE="false" PREVIOUS="use_addendum"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="local_obf_email_templates" COMMENT="Default comment for the table, please edit me" PREVIOUS="local_obf_criterion" NEXT="local_obf_criterion_met">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="badge_id"/>
+                <FIELD NAME="badge_id" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" PREVIOUS="id" NEXT="subject"/>
+                <FIELD NAME="subject" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" PREVIOUS="badge_id" NEXT="body"/>
+                <FIELD NAME="body" TYPE="text" NOTNULL="true" SEQUENCE="false" PREVIOUS="subject" NEXT="link_text"/>
+                <FIELD NAME="link_text" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" PREVIOUS="body" NEXT="footer"/>
+                <FIELD NAME="footer" TYPE="text" NOTNULL="true" SEQUENCE="false" PREVIOUS="body"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" NEXT="uniq_badge_id"/>
+                <KEY NAME="uniq_badge_id" TYPE="unique" FIELDS="badge_id" PREVIOUS="primary"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="local_obf_criterion_met" COMMENT="Default comment for the table, please edit me" PREVIOUS="local_obf_email_templates" NEXT="local_obf_backpack_emails">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="obf_criterion_id"/>
+                <FIELD NAME="obf_criterion_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" PREVIOUS="id" NEXT="user_id"/>
+                <FIELD NAME="user_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" PREVIOUS="obf_criterion_id" NEXT="met_at"/>
+                <FIELD NAME="met_at" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" PREVIOUS="user_id"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" NEXT="fk_obf_criterion_id"/>
+                <KEY NAME="fk_obf_criterion_id" TYPE="foreign" FIELDS="obf_criterion_id" REFTABLE="local_obf_criterion" REFFIELDS="id" PREVIOUS="primary" NEXT="fk_user_id"/>
+                <KEY NAME="fk_user_id" TYPE="foreign" FIELDS="user_id" REFTABLE="user" REFFIELDS="id" PREVIOUS="fk_obf_criterion_id"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="local_obf_backpack_emails" COMMENT="Default comment for the table, please edit me" PREVIOUS="local_obf_criterion_met" NEXT="local_obf_backpack_sources">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="user_id"/>
+                <FIELD NAME="user_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" PREVIOUS="id" NEXT="email"/>
+                <FIELD NAME="email" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" PREVIOUS="user_id" NEXT="backpack_id"/>
+                <FIELD NAME="backpack_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="email" NEXT="groups"/>
+                <FIELD NAME="groups" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" PREVIOUS="backpack_id"/>
+                <FIELD NAME="backpack_provider" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" NEXT="fk_user_id"/>
+                <KEY NAME="fk_user_id" TYPE="foreign" FIELDS="user_id" REFTABLE="user" REFFIELDS="id" PREVIOUS="primary"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="local_obf_backpack_sources" COMMENT="local_obf_backpack_sources table retrofitted from MySQL" PREVIOUS="local_obf_backpack_emails" NEXT="obf_criterion_params">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="18" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="shortname" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="fullname" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="url" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="configureableaddress" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="local_obf_criterion_params" COMMENT="Default comment for the table, please edit me" PREVIOUS="local_obf_backpack_sources">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="obf_criterion_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="value" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="fk_obf_criterion_id" TYPE="foreign" FIELDS="obf_criterion_id" REFTABLE="local_obf_criterion" REFFIELDS="id"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="local_obf_user_preferences" COMMENT="obf_user_preferences table retrofitted from MySQL">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="18" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="user_id" TYPE="int" LENGTH="18" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="value" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="fk_user_id" TYPE="foreign" FIELDS="user_id" REFTABLE="user" REFFIELDS="id"/>
+            </KEYS>
+            <INDEXES>
+                <INDEX NAME="idx_name" UNIQUE="false" FIELDS="name"/>
+            </INDEXES>
+        </TABLE>
+        <TABLE NAME="local_obf_user_emails" COMMENT="local_obf_user_emails table retrofitted from MySQL">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="18" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="email" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="token" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="verified" TYPE="binary" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="user_id" TYPE="int" LENGTH="18" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="timestamp" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="idx_obf_user_emails" TYPE="unique" FIELDS="user_id, email"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="local_obf_badge_blacklists" COMMENT="Default comment for the table, please edit me">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="user_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="badge_id" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="fk_user_id" TYPE="foreign" FIELDS="user_id" REFTABLE="user" REFFIELDS="id"/>
+            </KEYS>
+            <INDEXES>
+                <INDEX NAME="idx_badge" UNIQUE="false" FIELDS="badge_id"/>
+            </INDEXES>
+        </TABLE>
+        <TABLE NAME="local_obf_issue_events" COMMENT="Default comment for the table, please edit me">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="event_id" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="user_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="obf_criterion_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="fk_user_id" TYPE="foreign" FIELDS="user_id" REFTABLE="user" REFFIELDS="id"/>
+                <KEY NAME="fk_obf_criterion_id" TYPE="foreign" FIELDS="obf_criterion_id" REFTABLE="local_obf_criterion" REFFIELDS="id"/>
+            </KEYS>
+        </TABLE>
+
+        <TABLE NAME="local_obf_history_emails" COMMENT="Table for changed user emails">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="18" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="user_id" TYPE="int" LENGTH="18" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="email" TYPE="char" LENGTH="191" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="timestamp" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="idx_obf_deleted_emails" TYPE="unique" FIELDS="user_id, email"/>
+            </KEYS>
+        </TABLE>
+    </TABLES>
+</XMLDB>

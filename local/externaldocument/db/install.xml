@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/externaldocument/db" VERSION="20151209" COMMENT="XMLDB file for local externaldocument"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="extdoc_t_course" COMMENT="External courses table">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="courseid"/>
+        <FIELD NAME="title" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="" PREVIOUS="id" NEXT="content"/>
+        <FIELD NAME="content" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT=""/>
+        <FIELD NAME="description1" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT=""/>
+        <FIELD NAME="description2" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT=""/>
+        <FIELD NAME="author" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT=""/>
+        <FIELD NAME="university" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT=""/>
+        <FIELD NAME="url" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT=""/>
+        <FIELD NAME="language" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="tags" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="coursecredits" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="starttime" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="endtime" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="extdoc_t_webpage" COMMENT="External webpages table">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="courseid"/>
+        <FIELD NAME="title" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="" PREVIOUS="id" NEXT="content"/>
+        <FIELD NAME="content" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT=""/>
+        <FIELD NAME="description1" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT=""/>
+        <FIELD NAME="description2" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT=""/>
+        <FIELD NAME="url" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT=""/>
+        <FIELD NAME="language" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="languageofwork" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="tags" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="extdoc_t_person" COMMENT="External webpages table">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="courseid"/>
+        <FIELD NAME="title" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="" PREVIOUS="id" NEXT="content"/>
+        <FIELD NAME="content" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT=""/>
+        <FIELD NAME="description1" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT=""/>
+        <FIELD NAME="description2" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT=""/>
+        <FIELD NAME="givenname" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT=""/>
+        <FIELD NAME="familyname" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT=""/>
+        <FIELD NAME="employer" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT=""/>
+        <FIELD NAME="employerstarttime" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT=""/>
+        <FIELD NAME="employerendtime" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT=""/>
+        <FIELD NAME="tags" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="url" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="occupation" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="orcidid" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>

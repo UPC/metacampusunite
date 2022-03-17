@@ -1,0 +1,178 @@
+/* START: GLOBAL */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Roboto', sans-serif;
+}
+
+body#page-login-index {
+    background-image: url(https://www.unite-university.eu/static/cabecera2.jpg);
+}
+/* END: GLOBAL */
+
+/* START: HEADER */
+#page-wrapper > nav {
+    font-weight: bold;
+}
+.breadcrumb-item > a[aria-current=page] {
+    font-weight: bold;
+}
+/* END: HEADER */
+
+/* START: COURSE LIST */
+.coursebox .content .courseimage {
+    text-align: center;
+    img {
+        max-width: 350px;
+        max-height: 350px;
+    }
+}
+/* END: COURSE LIST */
+
+/* START: COURSE */
+#page-course-view-topics .course-content .sectionname {
+    background-color: #359aba;
+    color: white;
+    margin: -1rem -1.28rem;
+    margin-bottom: -0.5rem;
+    padding: 1.3rem;
+    a {
+        font-weight: bold;
+        color: white;
+    }
+}
+/* END: COURSE */
+
+
+
+/************************** START: ESTILS JORDI ***********************************/
+/* COURSE OVERVIEW - estils Jordi */
+.block_myoverview .paged-content-page-container {
+    padding-top: 1em;
+}
+/*FI COURSE OVERVIEW*/
+
+/* HEADER SECCIÓ - estils Jordi */
+#page-course-view-topics .course-content .sectionname {
+    background-color: #fff !important;
+    color: #359aba !important;
+}
+
+#page-course-view-topics .course-content .sectionname a {
+    font-weight: 700;
+    color: #0f9ab5 !important;
+}
+/* FI HEADER SECCIÓ */
+
+/* nom campus - estils Jordi */
+.site-name {
+    font-weight: 300 !important;
+}
+
+/* START: Global search */
+/* highlight search - estils Jordi */
+.highlight {
+    background-color: #FFFBCC;
+    font-weight: bold
+}
+
+/* alerta search - estils Jordi */
+#page-search-index .alert-danger.alert-block.fade.in.notifywarning {
+    color: black;
+    background-color: transparent !important;
+}
+/* END: Global search */
+/************************** END: ESTILS JORDI ***********************************/
+
+
+
+/* START: FOOTER */
+.custom-metacampus-footer .top-section {
+    padding: 0px 20px 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.custom-metacampus-footer .unite-links {
+    min-width: 250px;
+    align-content: center;
+    padding-top: 10px;
+}
+
+.custom-metacampus-footer .unite-links a {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.custom-metacampus-footer .unite-links img {
+    max-height: 45px;
+}
+
+.custom-metacampus-footer .bottom-section {
+    border-top: 2px solid #231f20;
+    padding: 20px;
+}
+
+.custom-metacampus-footer .logos {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.custom-metacampus-footer .logos .logo img {
+    max-height: 45px;
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    margin: 10px;
+}
+
+.custom-metacampus-footer .unite-logo img {
+    width: auto;
+    max-height: 105px;
+}
+/* Ocultar l'efecte d'element seleccionat quan es fa click al logo */
+.custom-metacampus-footer .unite-logo a:focus {
+  box-shadow: none!important;
+}
+
+div.bottom-section div.eu-logos img {
+    max-height: 45px;
+}
+
+#page-footer {
+  background-color: white!important;
+}
+
+#page-footer a {
+    color: black;
+    text-decoration: none;
+}
+
+/* START: hide footer info */
+#page-footer .sitelink {
+    display:none;
+}
+#page-footer .helplink {
+    display:none;
+}
+#page-footer .logininfo {
+    display:none;
+}
+#page-footer .homelink {
+    display:none;
+}
+#page-footer .tool_dataprivacy {
+    display:none;
+}
+#page-footer .policiesfooter {
+    display:none;
+}
+#page-footer .purgecaches {
+    display:none;
+}
+/* END: hide footer info */
+/* END: FOOTER */

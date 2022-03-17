@@ -1,0 +1,16 @@
+<span class="fieldtofind clickable">
+    <span class="{{{fieldclass}}}
+        {{^removefield}} text-primary{{/removefield}}
+        {{#removefield}} bold{{/removefield}}"
+          data-fieldname="{{{fieldname}}}"
+          data-fieldvalue="{{{fieldvalue}}}">
+        {{{fieldvalue}}}
+        {{#removefield}}
+            <i class="fa fa-remove removefieldfilter deleteicon"></i>
+        {{/removefield}}
+    </span>
+
+    <span class="badge bg-secondary ml-2">
+        {{{fieldcount}}}
+    </span>
+</span>

@@ -1,0 +1,120 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core_search/result
+
+    Template which shows a search result.
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * courseurl
+    * coursefullname
+    * title
+    * docurl
+    * contexturl
+
+    Optional context variables for this template:
+    * content
+    * userurl
+    * userfullname
+    * description1
+    * description2
+    * filename
+    * multiplefiles
+    * filenames
+
+    Example context (json):
+    {
+        "courseurl": "https://example.com/course/view.php?id=2",
+        "coursefullname": "Example course",
+        "title": "Example title",
+        "docurl": "https://example.com/mod/example/view.php?id=4",
+        "content": "I am content",
+        "contexturl": "https://example.com/mod/example/view.php?id=2",
+        "userurl": "https://example.com/user/profile.php?id=3",
+        "userfullname": "Example User Full Name",
+        "multiplefiles": true,
+        "filenames":
+        [
+            "file1.txt",
+            "file2.txt"
+        ]
+    }
+}}
+
+
+{{#description2}}
+    <div class="description2">{{{description2}}}</div>
+{{/description2}}
+{{#university}}
+    <div class="university"><span class="university-title font-weight-bold">University:</span> {{{university}}}</div>
+{{/university}}
+{{#author}}
+    <div class="author"><span class="author-title font-weight-bold">Author:</span> {{{author}}}</div>
+{{/author}}
+{{#url}}
+    <div class="url">
+        <span class="url-title font-weight-bold">Url:</span> <a href="{{{url}}}">{{{url}}}</a>
+    </div>
+{{/url}}
+{{#givenname}}
+    <div class="givenname"><span class="givenname-title font-weight-bold">Given name:</span> {{{givenname}}}</div>
+{{/givenname}}
+{{#familyname}}
+    <div class="familyname"><span class="familyname-title font-weight-bold">Family name:</span> {{{familyname}}}</div>
+{{/familyname}}
+{{#employer}}
+    <div class="employer"><span class="employer-title font-weight-bold">Employer:</span> {{{employer}}}</div>
+{{/employer}}
+{{#employerstarttime}}
+    <div class="employerstarttime"><span class="employerstarttime-title font-weight-bold">Employer start time:</span> {{{employerstarttime}}}</div>
+{{/employerstarttime}}
+{{#employerendtime}}
+    <div class="employerendtime"><span class="employerendtime-title font-weight-bold">Employer end time:</span> {{{employerendtime}}}</div>
+{{/employerendtime}}
+{{#languageofwork}}
+    <div class="languageofwork"><span class="languageofwork-title font-weight-bold">Language of work:</span> {{{languageofwork}}}</div>
+{{/languageofwork}}
+{{#exttype}}
+    <div class="exttype"><span class="exttype-title font-weight-bold">Type:</span> {{{exttype}}}</div>
+{{/exttype}}
+{{#tags}}
+    <div class="tags"><span class="tags-title font-weight-bold">Tags:</span> {{{tags}}}</div>
+{{/tags}}
+{{#language}}
+    <div class="language"><span class="language-title font-weight-bold">Language:</span> {{{language}}}</div>
+{{/language}}
+{{#coursecredits}}
+    <div class="coursecredits"><span class="coursecredits-title font-weight-bold">Course credits:</span> {{{coursecredits}}}</div>
+{{/coursecredits}}
+{{#starttime}}
+    <div class="starttime"><span class="starttime-title font-weight-bold">Start time:</span> {{{starttime}}}</div>
+{{/starttime}}
+{{#endtime}}
+    <div class="endtime"><span class="endtime-title font-weight-bold">End time:</span> {{{endtime}}}</div>
+{{/endtime}}
+{{#occupation}}
+    <div class="occupation"><span class="occupation-title font-weight-bold">Occupation:</span> {{{occupation}}}</div>
+{{/occupation}}
+{{#orcidid}}
+    <div class="orcidid"><span class="orcidid-title font-weight-bold">ORCID iD:</span> {{{orcidid}}}</div>
+{{/orcidid}}

@@ -1,0 +1,13 @@
+<form class="block-searchcourses-form" action="{{actionurl}}" style="display: inline;">
+    <legend class="accesshide">{{#str}}search{{/str}}</legend>
+    <label class="accesshide" for="searchcourses_search">{{#str}}search{{/str}}</label>
+    <div class="d-flex">
+      <div class="mr-2" style="flex-grow: 1;">
+        <input id="searchcourses_search" class="form-control" name="search" type="text" size="16">
+      </div>
+      <div>
+        <button id="searchcourses_button" class="btn btn-primary" type="submit" title={{#quote}}{{#str}}search{{/str}}{{/quote}}>{{#str}}search{{/str}}</button>
+      </div>
+    </div>
+</form>
+<br/>
