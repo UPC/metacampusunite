@@ -1,0 +1,189 @@
+.announcement {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.announcement_icon {
+    width:100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.announcements_btn {
+
+}
+
+.announcements_detailed .announcements_detailannouncementbox {
+    text-align: center;
+}
+
+.row.announcements_detailed {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+#link_new {
+  margin-bottom: 15px;
+}
+/*estils afegits per una millora visual*/
+.announcement_icon:hover {
+ opacity: 0.8;
+}
+
+.announcement_element {
+    background: white none repeat scroll 0 0;
+    box-shadow: 2px 2px 2px #ddd;
+    min-height: 410px;
+}
+
+.announcement_info {
+    padding: 15px;
+    height: calc(100% - 300px);
+    width: 100%;
+}
+
+
+
+
+.backwhite {
+    background: #ffffff;
+}
+
+.backgrey {
+    background: #eeeeef;
+}
+.flexwrap {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.announcement_element {
+    min-height: auto;
+    position: relative;
+    background: #f3f3f3 none repeat scroll 0 0;
+}
+#page-my-index #region-main .block-region .card-body,
+#page-my-index #region-main .block-region .userprofile .profile_tree section,
+.userprofile .profile_tree #page-my-index #region-main .block-region section {
+    padding: 0px;
+}
+.announcements_horizontal .announcement_element > div {
+    flex-basis: 50%;
+    flex-grow: 1;
+}
+.announcement_default img.announcement_icon {
+    height: 200px;
+}
+img.announcement_icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+a.announcements_btn {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.announcement_title_h{
+  display: none;
+}
+
+@media (max-width: 500px){
+.announcement_title_h {
+  display: block;
+    flex-basis: 100% !important;
+    flex-grow: 1;
+    padding: 20px 30px 10px 30px;
+}
+.announcements_horizontal .announcement_info.text_top .announcement_title{display: none;}
+}
+
+
+
+.block_announcements .announcement_element>a, .announcement_bgimage{
+    height: 300px;
+    background-size: cover;
+    width: 100%;
+    background-position: top center;
+}
+.announcements_horizontal .announcement_bgimage{
+    height: 100%;
+}
+.announcement_info.text_top {
+    width: 100%;
+    height: auto;
+}
+
+
+/* Mejoras bloque */
+.announcement_element_box{
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+}
+.announcement_element_img{
+    width: 100%;
+}
+
+.announcements_horizontal .announcement_element_box{
+    height: 100% !important;
+}
+
+.announcements_horizontal .announcement_element_img {
+    flex: 0 0 40%;
+    max-width: 40%;
+    height: 100% !important;
+}
+
+.announcements_horizontal .announcement_info {
+    flex: 0 0 60%;
+    max-width: 60%;
+    height: 100% !important;
+}
+
+
+
+
+
+
+
+
+
+.announcements_horizontal {
+        /*Para que no se solape cuando se baja el segundo bloque y tambi? separarlo del "view all" */
+        .announcement {
+            margin-bottom: 20px !important;
+        }
+        .announcement_element {
+            min-height: auto;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            > div {
+                margin: 0px;
+                flex-basis: 50%;
+                flex-grow: 1;
+            }
+        }
+        .announcement_info {
+            min-width: 14em;
+            overflow: visible;
+            margin: 0px;
+            padding: 15px 30px;
+
+        }
+
+        .linkhome {
+            padding: 5px 10px;
+            border-bottom: 1px solid #323436;
+            &:after{
+                content: ">";
+                float: right;
+            }
+        }
+
+    }

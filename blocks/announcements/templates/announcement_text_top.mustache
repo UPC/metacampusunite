@@ -1,0 +1,71 @@
+{{!
+------------------------
+@FUNC F030 AT: Block announcements.
+Block que mostra noticies.
+---Fi
+}}
+
+<div id="{{announcementsid}}" class="row announcements {{#layout}} announcements_horizontal{{/layout}}">
+    {{#elements}}
+     <div class="col-lg-{{colsperrow}} announcement drawer-px-1">
+      <div class="announcement_element_box">
+        <div class="backwhite flexwrap">
+
+{{#layout}}
+      <div class="announcement_title_h">
+          <h4 class="announcement_title">{{#fontawesome_icon}}<i class="fa fa-{{fontawesome_icon}}"></i> {{/fontawesome_icon}}{{#url}}<a href="{{url}}" target="{{target}}">{{/url}}{{{title}}}{{#url}}</a>{{/url}}</h4>
+      </div>
+      <div class="announcement_element_img">
+      {{#url}}
+        <a href="{{url}}" target="{{target}}">
+          <div class="announcement_image {{#imageurl}}announcement_bgimage{{/imageurl}}" {{#imageurl}}style="background-image:url({{imageurl}})"{{/imageurl}}>
+          </div>
+        </a>
+      {{/url}}
+      {{^url}}
+        <div class="announcement_image {{#imageurl}}announcement_bgimage{{/imageurl}}" {{#imageurl}}style="background-image:url({{imageurl}})"{{/imageurl}}>
+        </div>
+      {{/url}}
+      </div>
+      <div class="announcement_info text_top">
+          <h4 class="announcement_title">{{#fontawesome_icon}}<i class="fa fa-{{fontawesome_icon}}"></i> {{/fontawesome_icon}}{{#url}}<a href="{{url}}" target="{{target}}">{{/url}}{{{title}}}{{#url}}</a>{{/url}}</h4>
+
+          {{#button_edit_announcement}}<a href="{{button_edit_announcement}}" class="btn btn-secondary" target="_blank">{{#str}}edit{{/str}}</a>{{/button_edit_announcement}}
+
+          <p>{{{content}}}</p>
+      </div>
+{{/layout}}
+{{^layout}}
+        <div class="announcement_info text_top">
+          <h4 class="announcement_title">{{#fontawesome_icon}}<i class="fa fa-{{fontawesome_icon}}"></i> {{/fontawesome_icon}}{{#url}}<a href="{{url}}" target="{{target}}">{{/url}}{{{title}}}{{#url}}</a>{{/url}}</h4>
+        </div>
+         <div class="announcement_element_img">
+        {{#url}}
+          <a href="{{url}}" target="{{target}}">
+            <div class="announcement_image {{#imageurl}}announcement_bgimage{{/imageurl}}" {{#imageurl}}style="background-image:url({{imageurl}})"{{/imageurl}}>
+            </div>
+          </a>
+        {{/url}}
+        {{^url}}
+          <div class="announcement_image {{#imageurl}}announcement_bgimage{{/imageurl}}" {{#imageurl}}style="background-image:url({{imageurl}})"{{/imageurl}}>
+          </div>
+        {{/url}}
+        </div>
+        <div class="announcement_info">
+          {{#button_edit_announcement}}<a href="{{button_edit_announcement}}" class="btn btn-secondary" target="_blank">{{#str}}edit{{/str}}</a>{{/button_edit_announcement}}
+          <p>{{{content}}}</p>
+        </div>
+{{/layout}}
+
+
+
+
+        </div>
+      </div>
+    </div>
+    {{/elements}}
+
+    {{#link_other_announcements}}<div><a href="{{link_other_announcements}}" class="announcements_btn">{{#str}}view_link_other_announcements, block_announcements{{/str}}</a></div>{{/link_other_announcements}}
+
+    {{#button_announcements}}<a href="{{button_announcements}}" class="btn btn-secondary" target="_blank">{{#str}}announcements_manage,block_announcements{{/str}}</a>{{/button_announcements}}
+</div>

@@ -1,0 +1,15 @@
+{{! ------------------------ @FUNC F030 AT: Block announcements. Block que mostra noticies. ---Fi }}
+
+<div class="container">
+    {{#announcements}}
+    <div class="row announcements_detailed">
+        <div class="col-xl-4 col-sm-4 announcements_detailannouncementbox align-top">
+            {{#imageurl}}{{#url}}<a href="{{url}}" target="{{link_target}}">{{/url}}<img class="announcementicon img-fluid" src="{{imageurl}}" alt="{{alt}}">{{#url}}</a>{{/url}}{{/imageurl}}
+        </div>
+        <div class="col-xl-8 col-sm-8 announcements_detailinfo align-top">
+            <h4 class="announcementtitle2">{{#fontawesome_icon}}<i class="fa fa-{{fontawesome_icon}}"></i> {{/fontawesome_icon}}{{#url}}<a href="{{{url}}}" target="{{link_target}}">{{/url}}{{{title}}}{{#url}}</a>{{/url}}</h4>
+            <p class="announcementsummary"> {{{content}}}</p>
+        </div>
+    </div>
+    {{/announcements}}
+</div>

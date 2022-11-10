@@ -1,0 +1,28 @@
+{{!
+------------------------
+@FUNC F030 AT: Block announcements.
+Block que mostra noticies.
+---Fi
+}}
+
+<div id="{{announcementsid}}" class="row announcements announcement_default">
+    {{#elements}}
+    <div class="col-lg-{{colsperrow}} announcement drawer-px-1">
+      <div class="announcement_element">
+        {{#url}}<a href="{{url}}" target="{{target}}">{{/url}}{{#imageurl}}<img class="announcement_icon" src="{{imageurl}}" alt="{{alt}}">{{/imageurl}}{{#url}}</a>{{/url}}
+        <div class="announcement_info">
+          <h4 class="announcement_title">{{#fontawesome_icon}}<i class="fa fa-{{fontawesome_icon}}"></i> {{/fontawesome_icon}}{{#url}}<a href="{{url}}" target="{{target}}">{{/url}}{{{title}}}{{#url}}</a>{{/url}}</h4>
+
+          {{#button_edit_announcement}}<a href="{{button_edit_announcement}}" class="btn btn-secondary" target="_blank">{{#str}}edit{{/str}}</a>{{/button_edit_announcement}}
+
+          <p>{{{content}}}</p>
+        </div>
+      </div>
+    </div>
+    {{/elements}}
+
+    {{#link_other_announcements}}<div><a href="{{link_other_announcements}}" class="announcements_btn">{{#str}}view_link_other_announcements, block_announcements{{/str}}</a></div>{{/link_other_announcements}}
+
+    {{#button_announcements}}<a href="{{button_announcements}}" class="btn btn-secondary" target="_blank">{{#str}}announcements_manage,block_announcements{{/str}}</a>{{/button_announcements}}
+</div>
+

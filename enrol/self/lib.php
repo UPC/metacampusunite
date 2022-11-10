@@ -409,6 +409,11 @@ class enrol_self_plugin extends enrol_plugin {
         $contact = $this->get_welcome_email_contact($sendoption, $context);
 
         // Directly emailing welcome message rather than using messaging.
+        // ---------------------------------------
+        // PATCH MCU 011: Transformar caràcters especials al títol de l'email de benvinguda de l'enrol_self
+        // -------------------------- CODI AFEGIT:
+        $subject = htmlspecialchars_decode($subject);
+        // ------------------------------ Fi patch
         email_to_user($user, $contact, $subject, $messagetext, $messagehtml);
     }
 

@@ -66,6 +66,9 @@ if ($id) {
 // PATCH MCU 008: Treure requeriment de login a plugin moodleoverflow
 // -------------- CODI ELIMINAT:
 //require_login($course, true, $cm);
+// -------------- CODI AFEGIT:
+$PAGE->set_cm($cm, $course);
+$PAGE->set_pagelayout('incourse');
 // ---------------- Fi (Resta 1)
 
 // Set the context.

@@ -1052,7 +1052,7 @@ class manager {
             }
 
             // --------------------------
-            // PATCH MCU 008: Incloure sempre a permisos de cerca el context per a local_externaldocument
+            // PATCH MCU 012: Incloure sempre a permisos de cerca el context per a local_externaldocument
             // --------------CODI AFEGIT:
             $selector = new extdoc_typeselector();
             $types = $selector->get_types();

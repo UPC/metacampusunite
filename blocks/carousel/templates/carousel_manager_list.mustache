@@ -1,0 +1,84 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">
+                Image{{! //#TODO# lang }}
+            </th>
+            <th scope="col">
+                Roles{{! //#TODO# lang }}
+            </th>
+            <th scope="col">
+                Title{{! //#TODO# lang }}
+            </th>
+            <th scope="col">
+                Content{{! //#TODO# lang }}
+            </th>
+            <th scope="col">{{! actions column }}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#images}}
+        <tr>
+            <td class="text-center">
+                <i class="fa fa-eye{{^enabled}}-slash{{/enabled}} icon" title="Habilitada"></i>{{! //#TODO# lang }}
+            </td>
+            <td scope="row">
+                {{#imgsrc}}
+                <img class="carousel-list-thumbnail" src="{{imgsrc}}" alt="{{title}}">
+                {{/imgsrc}}
+            </td>
+            <td class="roles-list">
+                {{#roles}}<span class="role">{{.}}</span><br>{{/roles}}
+            </td>
+            <td>
+                {{{title}}}
+            </td>
+            <td>
+                {{{content}}}
+            </td>
+            <td class="carousel-slide-actions">
+                {{! <i class="fa fa-arrow-up icon" style="color: grey;" title="Arriba"></i> }}
+                <a href="javascript:void(0);" id="carousel_up_{{id}}">
+                    <i class="fa fa-arrow-up icon" title="Arriba"></i>
+                </a>
+                <a href="javascript:void(0);" id="carousel_down_{{id}}">
+                    <i class="fa fa-arrow-down icon" title="Abajo"></i>{{! //#TODO# lang title }}
+                </a>
+                <a href="{{{config.wwwroot}}}/blocks/carousel/manager/edit.php?id={{id}}">
+                    <i class="fa fa-pencil-square-o icon" title="Editar"></i>{{! //#TODO# lang title }}
+                </a>
+                <a href="{{{config.wwwroot}}}/blocks/carousel/manager/del.php?id={{id}}">
+                    <i class="fa fa-trash-o icon" title="Borrar"></i> {{! //#TODO# lang title }}
+                </a>
+
+
+            </td>
+        </tr>
+    	{{/images}}
+    </tbody>
+</table>
+<style>
+    .carousel-list-thumbnail {
+        height: 50px;
+    }
+
+    .carousel-slide-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .carousel-slide-actions > * {
+        padding: 1px;
+    }
+
+    .carousel-manager-category-selector {
+        display: flex;
+    }
+
+    .carousel-manager-category-selector-label + .singleselect {
+        flex-grow: 1;
+    }
+</style>

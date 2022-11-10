@@ -1,0 +1,101 @@
+
+/* Treure tot el padding del block carousel perque les imatges es vegin sense marges */
+.block.block_carousel .card-body {
+    /* Contrarrestem el padding 1.5rem afegit pel .card-body */
+    padding: 0px!important;
+}
+
+.block.block_carousel .card-text {
+    /* Eliminar el marge que queda sobre les slides del block. Ha de contrarrestar la class mt-3 de .card-text */
+    margin-top: 0px!important;
+}
+
+/* Amb mode edició activat han d'haver-hi marges perquè es vegin bé les opcions */
+body.editing .block.block_carousel .card-body {
+    /* Correspon a p-4 que ja estava aplicat a .card-body abans de ser sobreescrit per eliminar els marges */
+    padding: 1.5rem!important;
+}
+
+.block.block_carousel .carousel-inner {
+  min-width: auto;
+}
+.block.block_carousel .carousel-item img{
+    margin: 0 auto;
+    width:100%;
+}
+
+.block.block_carousel .carousel {
+    /* Color de fons que es veurà al carousel quan no es pugui carregar una imatge o la imatge no ompli el bloc sencer */
+	background-color: lightgrey;
+}
+
+.block.block_carousel .manage-carousels-btn {
+    /* Colocar el botó "Manage carousels" a la part inferior esquerra */
+    position: absolute;
+    bottom: 0px;
+    /* Colocar el botó per sobre el carousel perque es pugui clicar */
+    z-index:1;
+}
+
+/* Fer que al clicar els botons de prev i next no es quedin enmarcats amb un requadre */
+.carousel-control-prev:active, .carousel-control-next:active, .carousel-control-prev:focus, .carousel-control-next:focus{
+    outline: 0;
+  border: none;
+  -moz-outline-style: none;
+    box-shadow: none !important;
+}
+
+/* START: Text dels carousel items */
+
+.block.block_carousel .carousel-item .carousel-caption {
+    left: 17%;
+    right: 42%;
+    text-align: left;
+    top: 10%;
+    position: absolute;
+    z-index: 10;
+    color: white;
+}
+
+.block.block_carousel .carousel-item .carousel-caption > * {
+    padding: 10px 18px;
+    background-color: rgba(119, 136, 153, .7); /* gris genèric. No es pot afegir canal alpha al brand secondary perquè ve en hex */
+}
+
+/* Ocultar els elements de les caixes de text si estan buides */
+.block.block_carousel .carousel-item .carousel-item-title:empty , .carousel-item .carousel-item-content:empty{
+    display: none;
+}
+
+/* START: Títol principal dels carousel items */
+
+.block.block_carousel .carousel-item .carousel-caption .carousel-item-title {
+    /*background: ;*/
+    color: white;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+/* END: Títol principal dels carousel items */
+
+/* START: Subtítol dels carousel items */
+
+.block.block_carousel .carousel-item .carousel-caption .carousel-item-content {
+    font-size: 22px;
+    line-height: 120%;
+    margin-top: 15px;
+}
+
+/* END: Subtítol dels carousel items */
+
+/* END: Text dels carousel items */
+
+/* START: Pantalla d'edició d'imatges de carousel */
+
+/* Imatge de preview quan s'editen les imatges del carousel */
+.carousel_preview {
+	width:70%;
+	margin: 0 auto;
+}
+
+/* END: Pantalla d'edició d'imatges de carousel */
